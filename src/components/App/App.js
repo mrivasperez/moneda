@@ -1,15 +1,16 @@
 import "./App.css";
 import NavBar from "../Navigation/NavBar";
 import AppLayout from "./AppLayout";
-import Welcome from "../Welcome";
+
 import { AppProvider } from "../AppProvider/AppProvider";
+import Settings from "../Pages/Settings/Settings";
 
 function App() {
   return (
     <AppProvider>
       <AppLayout>
         <NavBar />
-        <Welcome />
+        <Settings />
       </AppLayout>
     </AppProvider>
   );
