@@ -1,12 +1,12 @@
 import "./App.css";
-import AppBar from "./components/AppBar";
+import NavBar from "./components/navigation/NavBar";
 import AppLayout from "./components/AppLayout";
 import Welcome from "./components/Welcome";
 
 function App() {
   return (
     <AppLayout>
-      <AppBar />
+      <NavBar />
       <Welcome />
     </AppLayout>
   );
