@@ -8,12 +8,17 @@ const NavButtonElem = styled.p`
   padding: 10px;
   text-alight: center;
   margin: 0 10px 0 10px;
+  font-weight: bold;
+  font-size: 18px;
+  &:hover {
+    color: #46466f;
+  }
 
   ${({ active }) =>
     active &&
     css`
       text-decoration: underline;
-      text-decoration-color: #ab6ea6;
+      text-decoration-color: #e4ab4f;
       text-decoration-thickness: 3px;
     `};
 `;

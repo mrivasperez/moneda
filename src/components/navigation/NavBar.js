@@ -12,7 +12,7 @@ const Logo = styled.div`
 const Bar = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: 180px auto 100px 100px;
+  grid-template-columns: 180px auto 112px 110px;
   margin-bottom: 40px;
 `;
 

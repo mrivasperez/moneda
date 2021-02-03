@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { AppContext } from "../../AppProvider/AppProvider";
 
 const ConfirmButtonElem = styled.div`
+  font-size: 1.33em;
   margin: 20px;
-  font-weight: bold;
+  //   font-weight: bold;
   cursor: pointer;
   text-decoration: underline;
   text-decoration-color: #e4ab4f;
