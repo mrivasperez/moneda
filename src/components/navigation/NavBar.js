@@ -21,8 +21,8 @@ function NavBar() {
     <Bar>
       <Logo>Moneda</Logo>
       <div />
-      <NavButton active="active" name="Dashboard" />
-      <NavButton name="Settings" />
+      <NavButton active="active" name="dashboard" />
+      <NavButton name="settings" />
     </Bar>
   );
 }

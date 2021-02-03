@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { AppContext } from "../AppProvider/AppProvider";
 
 const NavButtonElem = styled.p`
   cursor: pointer;
@@ -17,8 +18,19 @@ const NavButtonElem = styled.p`
     `};
 `;
 
-function NavButton({ name, active }) {
-  return <NavButtonElem active={active}>{name}</NavButtonElem>;
+function NavButton({ name }) {
+  const toUpperCase = (text) => {
+    return text[0].toUpperCase() + text.substring(1);
+  };
+  return (
+    <AppContext.Consumer>
+      {({ page, setPage }) => (
+        <NavButtonElem active={page === name} onClick={() => setPage(name)}>
+          {toUpperCase(name)}
+        </NavButtonElem>
+      )}
+    </AppContext.Consumer>
+  );
 }
 
 export default NavButton;
