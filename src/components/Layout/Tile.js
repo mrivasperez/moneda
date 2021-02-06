@@ -4,7 +4,6 @@ export const Tile = styled.div`
   padding: 20px 15px;
   transition: box-shadow 0.25s ease-in-out, background 5s ease-in;
   border-radius: 5px;
-
   background: white;
   box-shadow: 10px 10px 20px #d4d3d1, -10px -10px 20px #ffffff;
 `;

@@ -32,6 +32,7 @@ function CoinTile({ coinKey, topSection }) {
         return (
           <TileClass
             onClick={clickCoinHandler(topSection, coinKey, addCoin, removeCoin)}
+            key={coinKey}
           >
             <CoinHeaderGrid
               topSection={topSection}
