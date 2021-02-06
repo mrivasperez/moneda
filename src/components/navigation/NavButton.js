@@ -8,15 +8,17 @@ const NavButtonElem = styled.p`
   padding: 10px;
   text-alight: center;
   margin: 0 10px 0 10px;
-  font-weight: bold;
   font-size: 18px;
+  transition: 0.1s font-weight ease;
   &:hover {
-    color: #46466f;
+    font-weight: bold;
+    // color: #46466f;
   }
 
   ${({ active }) =>
     active &&
     css`
+      font-weight: bold;
       text-decoration: underline;
       text-decoration-color: #e4ab4f;
       text-decoration-thickness: 3px;

@@ -4,11 +4,11 @@ import { AppContext } from "../../AppProvider/AppProvider";
 import CoinTile from "./CoinTile";
 
 export const CoinGridElem = styled.div`
-  margin-top: 45px;
+  margin-top: 30px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 30px;
-  margin-bottom: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  grid-gap: 35px;
+  margin-bottom: 30px;
 `;
 
 const getCoinsToDisplay = (coinList, topSection, favorites) => {

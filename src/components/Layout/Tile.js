@@ -2,32 +2,31 @@ import styled, { css } from "styled-components";
 
 export const Tile = styled.div`
   padding: 20px 15px;
-  // border: 1px solid #928bae;
-
-  transition: box-shadow 0.15s ease-in-out;
+  transition: box-shadow 0.25s ease-in-out, background 5s ease-in;
   border-radius: 5px;
-  background: linear-gradient(145deg, #e0dfdd, #ffffff);
-  box-shadow: 10px 10px 20px #e0dfdd, -10px -10px 20px #ffffff;
+
+  background: white;
+  box-shadow: 10px 10px 20px #d4d3d1, -10px -10px 20px #ffffff;
 `;
 
 export const SelectableTile = styled(Tile)`
   &:hover {
-    background: linear-gradient(145deg, #e0dfdd, #ffffff);
-    box-shadow: 5px 5px 10px #e0dfdd, -5px -5px 10px #ffffff;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    box-shadow: 3px 3px 8px #d4d3d1, -3px -3px 8px #ffffff;
     cursor: pointer;
   }
 `;
 
 export const DeletableTile = styled(SelectableTile)`
   &:hover {
-    box-shadow: 5px 5px 10px #e6a89c, -5px -5px 10px #ffffff;
+    box-shadow: 3px 3px 8px #e6a89c, -3px -3px 8px #ffffff;
   }
 `;
 
 export const DisabledTile = styled(Tile)`
   box-shadow: none;
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 0.8;
   color: gray;
   box-shadow: inset 5px 5px 10px #d4d3d1, inset -5px -5px 10px #ffffff;
 `;

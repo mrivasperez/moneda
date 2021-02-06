@@ -15,11 +15,11 @@ export class AppProvider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: "dashboard",
       ...this.savedSettings(),
+      page: "dashboard",
       setPage: this.setPage,
       confirmFavorites: this.confirmFavorites,
-      favorites: ["BTC", "ETH", "XMR", "DOGE"],
+      favorites: ["BTC"],
       addCoin: this.addCoin,
       removeCoin: this.removeCoin,
       isInFavorites: this.isInFavorites,
@@ -51,8 +51,10 @@ export class AppProvider extends React.Component {
 
   confirmFavorites = () => {
     this.setState({ firstVisit: false, page: "dashboard" });
-
-    localStorage.setItem("moneda", JSON.stringify({ test: "hello" }));
+    localStorage.setItem(
+      "moneda",
+      JSON.stringify({ favorites: this.state.favorites })
+    );
   };
 
   // check if a coin is already in favorites
@@ -63,7 +65,8 @@ export class AppProvider extends React.Component {
     if (!monedaData) {
       return { page: "settings", firstVisit: true };
     }
-    return {};
+    let { favorites } = monedaData;
+    return { favorites };
   }
 
   setPage = (page) => this.setState({ page });
