@@ -1,4 +1,5 @@
 import React from "react";
+import _ from "lodash";
 
 const cc = require("cryptocompare");
 
@@ -8,6 +9,8 @@ cc.setApiKey(
 
 export const AppContext = React.createContext();
 
+const MAX_FAVORITES = 8;
+
 export class AppProvider extends React.Component {
   constructor(props) {
     super(props);
@@ -16,11 +19,28 @@ export class AppProvider extends React.Component {
       ...this.savedSettings(),
       setPage: this.setPage,
       confirmFavorites: this.confirmFavorites,
+      favorites: ["BTC", "ETH", "XMR", "DOGE"],
+      addCoin: this.addCoin,
+      removeCoin: this.removeCoin,
+      isInFavorites: this.isInFavorites,
     };
   }
 
   componentDidMount = () => {
     this.fetchCoins();
+  };
+
+  addCoin = (key) => {
+    let favorites = [...this.state.favorites];
+    if (favorites.length < MAX_FAVORITES) {
+      favorites.push(key);
+      this.setState({ favorites });
+    }
+  };
+
+  removeCoin = (key) => {
+    let favorites = [...this.state.favorites];
+    this.setState({ favorites: _.pull(favorites, key) });
   };
 
   fetchCoins = async () => {
@@ -34,6 +54,9 @@ export class AppProvider extends React.Component {
 
     localStorage.setItem("moneda", JSON.stringify({ test: "hello" }));
   };
+
+  // check if a coin is already in favorites
+  isInFavorites = (key) => _.includes(this.state.favorites, key);
 
   savedSettings() {
     let monedaData = JSON.parse(localStorage.getItem("moneda"));
