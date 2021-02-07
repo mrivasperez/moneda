@@ -5,6 +5,7 @@ import AppLayout from "./AppLayout";
 import { AppProvider } from "../AppProvider/AppProvider";
 import Settings from "../Pages/Settings/Settings";
 import Content from "../Content";
+import Dashboard from "../Pages/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <NavBar />
         <Content>
           <Settings />
+          <Dashboard />
         </Content>
       </AppLayout>
     </AppProvider>
