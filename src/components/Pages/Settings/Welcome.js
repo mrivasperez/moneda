@@ -8,7 +8,10 @@ function Welcome() {
         firstVisit ? (
           <div>
             <h1>Welcome to Moneda!</h1>
-            <p>Please select your favorite currencies to begin.</p>
+            <p>
+              Please select your favorite currencies, or confirm the following
+              as your favorites to begin.
+            </p>
           </div>
         ) : null
       }
