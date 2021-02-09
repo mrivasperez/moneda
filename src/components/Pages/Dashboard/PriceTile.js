@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
+
 import { SelectableTile } from "../../Layout/Tile";
 import { CoinHeaderGridElem } from "../Settings/CoinHeaderGrid";
 
@@ -9,9 +10,11 @@ const JustifyRight = styled.div`
 
 const PriceTileElem = styled(SelectableTile)`
   ${(props) =>
-    props.compact &&
+    props.currentFavorite &&
     css`
-      $font-size: 0.75em;
+      background: linear-gradient(145deg, #e6e6e6, #ffffff);
+      box-shadow: 3px 3px 8px #d4d3d1, -3px -3px 8px #ffffff;
+      pointer-events: none;
     `}
 `;
 
@@ -32,12 +35,12 @@ const numberFormat = (number) => {
   return +(number + "").slice(0, 7);
 };
 
-function PriceTile({ price, index }) {
+function PriceTile({ price, index, currentFavorite }) {
   let sym = Object.keys(price)[0];
   let data = price[sym]["USD"];
 
   return (
-    <PriceTileElem compact={index >= 5}>
+    <PriceTileElem currentFavorite={currentFavorite}>
       <CoinHeaderGridElem>
         <div>{sym}</div>
         {/* TODO: This could be a new component */}

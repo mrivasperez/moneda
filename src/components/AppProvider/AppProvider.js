@@ -76,12 +76,16 @@ export class AppProvider extends React.Component {
   };
 
   confirmFavorites = () => {
-    this.setState({ firstVisit: false, page: "dashboard" }, () => {
-      this.fetchPrices();
-    });
+    let currentFavorite = this.state.favorites[0];
+    this.setState(
+      { firstVisit: false, page: "dashboard", currentFavorite },
+      () => {
+        this.fetchPrices();
+      }
+    );
     localStorage.setItem(
       "moneda",
-      JSON.stringify({ favorites: this.state.favorites })
+      JSON.stringify({ favorites: this.state.favorites, currentFavorite })
     );
   };
 
@@ -93,8 +97,8 @@ export class AppProvider extends React.Component {
     if (!monedaData) {
       return { page: "settings", firstVisit: true };
     }
-    let { favorites } = monedaData;
-    return { favorites };
+    let { favorites, currentFavorite } = monedaData;
+    return { favorites, currentFavorite };
   }
 
   setPage = (page) => this.setState({ page });
