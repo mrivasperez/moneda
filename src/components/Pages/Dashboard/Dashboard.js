@@ -3,6 +3,7 @@ import { Tile } from "../../Layout/Tile";
 import Page from "../Page";
 import ChartGrid from "./ChartGrid";
 import CoinSpotlight from "./CoinSpotlight";
+import PriceChart from "./Highcharts/PriceChart";
 import PriceGrid from "./PriceGrid";
 
 function Dashboard() {
@@ -11,7 +12,7 @@ function Dashboard() {
       <PriceGrid />
       <ChartGrid>
         <CoinSpotlight />
-        <Tile>Chart will go here!</Tile>
+        <PriceChart />
       </ChartGrid>
     </Page>
   );

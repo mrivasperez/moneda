@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Styled = styled.img`
   height: ${(props) => (props.spotlight ? "150px" : "75px")};
-  borderradius: "50%";
+  border-radius: 50%;
   padding: "15px 0";
   display: block;
   margin: 15px auto;

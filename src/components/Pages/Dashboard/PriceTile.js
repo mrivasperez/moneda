@@ -53,7 +53,7 @@ function PriceTile({ price }) {
             {/* TODO: This could be a new component */}
             <JustifyRight>
               <ChangePct red={data.CHANGEPCT24HOUR < 0}>
-                {numberFormat(data.CHANGEPCT24HOUR)}
+                {numberFormat(data.CHANGEPCT24HOUR)} %
               </ChangePct>
             </JustifyRight>
           </CoinHeaderGridElem>
