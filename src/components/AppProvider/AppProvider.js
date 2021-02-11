@@ -23,6 +23,7 @@ export class AppProvider extends React.Component {
       removeCoin: this.removeCoin,
       isInFavorites: this.isInFavorites,
       setFilteredCoins: this.setFilteredCoins,
+      setCurrentFavorite: this.setCurrentFavorite,
       ...this.savedSettings(),
     };
   }
@@ -71,7 +72,6 @@ export class AppProvider extends React.Component {
     // filter empty price objects
     prices = prices.filter((price) => Object.keys(price).length);
     // set prices
-    console.log(prices);
     this.setState({ prices });
   };
 
@@ -91,6 +91,24 @@ export class AppProvider extends React.Component {
 
   // check if a coin is already in favorites
   isInFavorites = (key) => _.includes(this.state.favorites, key);
+
+  // set the current favorite
+  setCurrentFavorite = (sym) => {
+    // set state of app to ahve current favorite
+
+    this.setState({ currentFavorite: sym });
+
+    // set in local storage and merge it to current fav
+    localStorage.setItem(
+      "moneda",
+      JSON.stringify({ ...JSON.parse(localStorage.getItem("moneda")) })
+    );
+
+    // localStorage.setItem(
+    //   "moneda",
+    //   JSON.stringify({ ...JSON.parse(localStorage.getItem("moneda")) })
+    // );
+  };
 
   savedSettings() {
     let monedaData = JSON.parse(localStorage.getItem("moneda"));

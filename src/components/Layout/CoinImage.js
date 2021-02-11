@@ -1,15 +1,22 @@
 import React from "react";
+import styled from "styled-components";
 
-function CoinImage({ coin, style }) {
+const Styled = styled.img`
+  height: ${(props) => (props.spotlight ? "150px" : "75px")};
+  borderradius: "50%";
+  padding: "15px 0";
+  display: block;
+  margin: 15px auto;
+`;
+
+const CoinImage = function ({ coin, spotlight }) {
   return (
-    <img
+    <Styled
+      spotlight={spotlight}
       alt={coin.CoinSymbol}
-      style={
-        style || { height: "50px", borderRadius: "50%", padding: "15px 0" }
-      }
       src={`http://cryptocompare.com/${coin.ImageUrl}`}
     />
   );
-}
+};
 
 export default CoinImage;

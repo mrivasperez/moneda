@@ -12,16 +12,17 @@ const PriceGridElem = styled.div`
 `;
 
 function PriceGrid() {
+  // let makeCurrentFavorite =
   return (
     <AppContext.Consumer>
-      {({ prices, currentFavorite }) => (
+      {({ prices }) => (
         <PriceGridElem>
           {prices.map((price, index) => (
             <PriceTile
+              sym={Object.keys(price)[0]}
               key={Object.keys(price)[0]}
               price={price}
               index={index}
-              currentFavorite={currentFavorite === Object.keys(price)[0]}
             >
               {Object.keys(price)[0]}
             </PriceTile>

@@ -34,12 +34,12 @@ function CoinTile({ coinKey, topSection }) {
             onClick={clickCoinHandler(topSection, coinKey, addCoin, removeCoin)}
             key={coinKey}
           >
+            <CoinImage coin={coin} />
             <CoinHeaderGrid
               topSection={topSection}
               name={coin.CoinName}
               symbol={coin.Symbol}
             />
-            <CoinImage coin={coin} />
           </TileClass>
         );
       }}
